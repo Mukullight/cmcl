@@ -1,0 +1,25 @@
+it is not preferable to call the api multiple times instead use tha latest to update the data instead of calling for each individual station 
+
+use the since filter
+
+use the standard http redirects if something unforeseen happens the standard protocals will be used 
+
+
+the app should do the following things 
+
+
+Using the Real Time flood-monitoring API (https://environment.data.gov.uk/flood-
+monitoring/doc/reference) provided by the Environmental Agency, please produce a tool (web
+page, script, desktop application etc.) that:
+·
+Provides some control to select an individual measurement station.
+·
+Once a singular station is selected, shows a line graph (with associated table) of that station’s
+readings over the last 24 hours.
+
+
+
+
+
+Please try to create the tool with user-experience and professional software development standards
+in mind. If you are successful in this stage, you will progress to an informal interview.
