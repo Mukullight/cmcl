@@ -25,8 +25,6 @@ server = app.server
 
 app.config["suppress_callback_exceptions"] = True
 
-# Plotly mapbox token
-mapbox_access_token = "pk.eyJ1IjoicGxvdGx5bWFwYm94IiwiYSI6ImNrOWJqb2F4djBnMjEzbG50amg0dnJieG4ifQ.Zme1-Uzoi75IaFbieBDl3A"
 
 state_map = {
     "AK": "Alaska",
@@ -143,9 +141,9 @@ def build_upper_left_panel():
         id="upper-left",
         className="six columns",
         children=[
-            html.P(
+            html.H3(
                 className="section-title",
-                children="Choose hospital on the map or procedures from the list below to see costs",
+                children="Choose hospital ",
             ),
             html.Div(
                 className="control-row-1",
@@ -315,10 +313,6 @@ def generate_geo_map(geo_data, selected_metric, region_select, procedure_select)
             + " ${:,.2f}".format(val),
         )
         hospitals.append(hospital)
-
-
-
-
     # Load the GeoJSON file
     geojson_file = 'uk.geojson'
     gdf = gpd.read_file(geojson_file)
@@ -336,10 +330,6 @@ def generate_geo_map(geo_data, selected_metric, region_select, procedure_select)
         color_column = 'value'
     else:
         color_column = [col for col in gdf.columns if col != 'geometry'][0]  # First non-geometry column
-    
-
-
-
 
     layout = go.Layout(
         margin=dict(l=10, r=10, t=20, b=10, pad=5),
@@ -349,15 +339,13 @@ def generate_geo_map(geo_data, selected_metric, region_select, procedure_select)
         hovermode="closest",
         showlegend=False,
         mapbox=go.layout.Mapbox(
-             # No accesstoken needed for local GeoJSON with default style
-             bearing=10,
+             bearing=0,
              center=go.layout.mapbox.Center(
                  lat=center_lat,
                  lon=center_lon
              ),
-             pitch=5,
-             zoom=5,
-             style="open-street-map"  # Use a free style instead of Mapbox custom style
+             zoom=4,
+             style="carto-positron"  # Use a free style instead of Mapbox custom style
          )
 
 
@@ -448,7 +436,7 @@ app.layout = html.Div(
             className="banner",
             children=[
                 html.H4("Real time flood monitoring analytics"),
-                html.Img(src=app.get_asset_url("defra.svg")),
+                html.Img(src=app.get_asset_url("defra.svg"),className="logo"),
             ],
         ),
         html.Div(
