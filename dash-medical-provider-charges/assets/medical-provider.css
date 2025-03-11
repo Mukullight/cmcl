@@ -10,7 +10,7 @@
 }
 
 body {
-  background-color: #171b26;
+  background-color: black;
   color: #9fa6b7;
   overflow-x: hidden;
 }
@@ -35,8 +35,10 @@ body {
 
 .banner Img {
   position: relative;
-  height: 2rem;
+  height: 5rem;
   width: auto;
+  filter: invert(1);
+
 }
 
 #upper-container, #lower-container {
@@ -184,9 +186,7 @@ span.Select-clear-zone {
     font-size: 1.5rem;
   }
 
-  .banner img {
-    height: 1.5rem;
-  }
+
 
   #upper-container {
     margin: 1rem;

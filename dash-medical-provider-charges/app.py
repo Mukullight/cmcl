@@ -447,8 +447,8 @@ app.layout = html.Div(
             id="banner",
             className="banner",
             children=[
-                html.H6("Dash Clinical Analytics"),
-                html.Img(src=app.get_asset_url("plotly_logo_white.png")),
+                html.H4("Real time flood monitoring analytics"),
+                html.Img(src=app.get_asset_url("defra.svg")),
             ],
         ),
         html.Div(
