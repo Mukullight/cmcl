@@ -1,7 +1,8 @@
 import dash
+from dash.dash_table.Format import Group
 import dash_table
-import dash_core_components as dcc
-import dash_html_components as html
+from dash import dcc
+from dash import html
 import plotly.graph_objs as go
 from dash.dependencies import State, Input, Output
 from dash.exceptions import PreventUpdate
@@ -10,6 +11,7 @@ import plotly.graph_objects as go
 import json
 import pandas as pd
 import os
+import dash_bootstrap_components as dbc
 
 app = dash.Dash(
     __name__,
@@ -19,6 +21,7 @@ app = dash.Dash(
             "content": "width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no",
         }
     ],
+    external_stylesheets=[dbc.themes.BOOTSTRAP],
 )
 app.title = "Medical Provider Charges"
 server = app.server
@@ -435,8 +438,9 @@ app.layout = html.Div(
             id="banner",
             className="banner",
             children=[
-                html.H4("Real time flood monitoring analytics"),
                 html.Img(src=app.get_asset_url("defra.svg"),className="logo"),
+                html.H4("Real time flood monitoring analytics"),
+
             ],
         ),
         html.Div(

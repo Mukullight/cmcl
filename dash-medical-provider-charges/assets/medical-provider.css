@@ -10,42 +10,48 @@
 }
 
 body {
-  background-color: white;
+  background-image: url("neon.jpg");
   color: #9fa6b7;
-  overflow-x: hidden;
+  overflow-x: auto;
+  margin-top: 7rem; /* Pushes body content below the fixed banner */
 }
 
-
-
 .banner {
-  height: 7rem; /* Fixed height like GOV.UK header */
+  height: 10rem; /* Fixed height like GOV.UK header */
   margin-bottom: 0; /* No margin-bottom; spacing handled elsewhere */
-  padding: 0 15px; /* GOV.UK horizontal padding; top/bottom implicit 0 */
+   /* GOV.UK horizontal padding; top/bottom implicit 0 */
   display: flex;
   flex-flow: row nowrap; /* Horizontal layout, no wrapping */
   align-items: center;
   justify-content: space-between;
+  border-left: 0rem;
   background-color: #0b0c0c; /* GOV.UK black */
   border-bottom: 5px solid #ffffff; /* GOV.UK white border */
   color: #ffffff; /* White text */
   font-family: Arial, sans-serif; /* Fallback for GDS Transport */
+  position: fixed; /* Makes it stick to the viewport */
+  top: 0; /* Pins it to the top */
+  width: 100%; 
+  z-index: 100;/* Ensures it spans the full width */
 }
 
 /* Styling for h4 (e.g., service name or title) */
 .banner h4 {
   font-family: Arial, sans-serif; /* Use Arial unless GDS Transport is available */
   color: #ffffff; /* White text */
-  font-size: 24px; /* Matches GOV.UK logo size, fits within 50px height */
+  font-size: 30px; /* Matches GOV.UK logo size, fits within 50px height */
   font-weight: 700; /* Bold, per GOV.UK logo styling */
   line-height: 1; /* Tight line height to fit */
   margin: 0; /* Remove default h4 margins */
   text-transform: none; /* GOV.UK doesn't uppercase logo text */
+  margin-right: 2rem;
 }
 
 /* Styling for img (e.g., crown logo) */
 .banner img {
   position: relative;
-  height: 5rem; /* Matches GOV.UK crown logo height */
+  margin-left: 2rem; /* Spacing between logo and service name */
+  height: 7rem; /* Matches GOV.UK crown logo height */
   width: auto; /* Maintain aspect ratio */
   filter: none; /* No invert needed if using GOV.UK’s white SVG logo */
   filter: invert(1); /* Invert the crown logo to white */
