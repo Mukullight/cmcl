@@ -5,7 +5,9 @@ import dash_html_components as html
 import plotly.graph_objs as go
 from dash.dependencies import State, Input, Output
 from dash.exceptions import PreventUpdate
-
+import geopandas as gpd
+import plotly.graph_objects as go
+import json
 import pandas as pd
 import os
 
@@ -314,6 +316,31 @@ def generate_geo_map(geo_data, selected_metric, region_select, procedure_select)
         )
         hospitals.append(hospital)
 
+
+
+
+    # Load the GeoJSON file
+    geojson_file = 'uk.geojson'
+    gdf = gpd.read_file(geojson_file)
+    
+    # Convert GeoDataFrame to a GeoJSON dictionary
+    geojson_data = json.loads(gdf.to_json())
+    
+    # Calculate center coordinates from the GeoDataFrame
+    center_lat = gdf.geometry.centroid.y.mean()
+    center_lon = gdf.geometry.centroid.x.mean()
+    
+    # Prepare a column for coloring (use an existing column or add a default)
+    if len(gdf.columns) <= 1:  # Only 'geometry' column
+        gdf['value'] = 1
+        color_column = 'value'
+    else:
+        color_column = [col for col in gdf.columns if col != 'geometry'][0]  # First non-geometry column
+    
+
+
+
+
     layout = go.Layout(
         margin=dict(l=10, r=10, t=20, b=10, pad=5),
         plot_bgcolor="#171b26",
@@ -322,15 +349,18 @@ def generate_geo_map(geo_data, selected_metric, region_select, procedure_select)
         hovermode="closest",
         showlegend=False,
         mapbox=go.layout.Mapbox(
-            accesstoken=mapbox_access_token,
-            bearing=10,
-            center=go.layout.mapbox.Center(
-                lat=filtered_data.lat.mean(), lon=filtered_data.lon.mean()
-            ),
-            pitch=5,
-            zoom=5,
-            style="mapbox://styles/plotlymapbox/cjvppq1jl1ips1co3j12b9hex",
-        ),
+             # No accesstoken needed for local GeoJSON with default style
+             bearing=10,
+             center=go.layout.mapbox.Center(
+                 lat=center_lat,
+                 lon=center_lon
+             ),
+             pitch=5,
+             zoom=5,
+             style="open-street-map"  # Use a free style instead of Mapbox custom style
+         )
+
+
     )
 
     return {"data": hospitals, "layout": layout}
