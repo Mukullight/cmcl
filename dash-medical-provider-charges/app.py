@@ -23,7 +23,7 @@ app = dash.Dash(
     ],
     external_stylesheets=[dbc.themes.BOOTSTRAP],
 )
-app.title = "Medical Provider Charges"
+app.title = "Flood Monitoring Analytics"
 server = app.server
 
 app.config["suppress_callback_exceptions"] = True
@@ -146,7 +146,7 @@ def build_upper_left_panel():
         children=[
             html.H3(
                 className="section-title",
-                children="Choose hospital ",
+                children="region selector",
             ),
             html.Div(
                 className="control-row-1",
@@ -154,7 +154,7 @@ def build_upper_left_panel():
                     html.Div(
                         id="state-select-outer",
                         children=[
-                            html.Label("Select a State"),
+                            html.Label("Select a region"),
                             dcc.Dropdown(
                                 id="state-select",
                                 options=[{"label": i, "value": i} for i in state_list],
