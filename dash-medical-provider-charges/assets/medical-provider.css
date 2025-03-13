@@ -61,6 +61,7 @@ body {
 
 #upper-container, #lower-container {
   margin: 2rem 5rem;
+  background-color: aquamarine;
 }
 
 #upper-left, #geo-map-outer {
