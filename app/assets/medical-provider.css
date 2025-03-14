@@ -1,0 +1,123 @@
+.container.scalable {
+  width: 100%;
+  max-width: none;
+}
+
+/* Remove Undo */
+._dash-undo-redo {
+  display: none;
+}
+
+body {
+  background-color: #1a3d32; /* Deep metallic green background */
+  color: #c5e1c5; /* Soft metallic greenish-silver text */
+  overflow-x: hidden;
+  margin-top: 7rem; /* Pushes body content below the fixed banner */
+}
+
+/* Banner Styling */
+.banner {
+  height: 10rem;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(90deg, #014421, #2a5934, #4b7750); /* Metallic green gradient */
+  border-bottom: 5px solid #d4efdf; /* Soft metallic accent */
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  box-shadow: 0px 4px 15px rgba(0, 50, 30, 0.6); /* Metallic-style shadow */
+}
+
+/* Styling for h4 (e.g., service name or title) */
+.banner h4 {
+  font-family: Arial, sans-serif;
+  color: #e0f2e9; /* Slight metallic highlight */
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1;
+  margin: 0 2rem;
+}
+
+/* Styling for img (e.g., logo) */
+.banner img {
+  position: relative;
+  margin-left: 2rem;
+  height: 7rem;
+  width: auto;
+  filter: invert(1);
+}
+
+/* Main Content Containers */
+#upper-container, #lower-container {
+  margin: 5rem;
+  background: linear-gradient(135deg, #3b6f52, #6c9270, #9fbfa1); /* Shiny metallic green gradient */
+  padding-top: 2rem;
+  border-radius: 15px;
+  box-shadow: 0px 4px 12px rgba(0, 50, 30, 0.6);
+  color: #07291e; /* Deep metallic green text */
+}
+
+/* Layout Styling */
+#upper-left, #geo-map-outer {
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+#geo-map-loading-outer {
+  height: auto;
+  width: auto;
+}
+
+#geo-map {
+  height: 50rem;
+  width: auto;
+  border-radius: 10px;
+  box-shadow: 0px 6px 12px rgba(0, 50, 30, 0.5); /* Metallic depth */
+}
+
+/* Map Outer Styling */
+#geo-map-outer {
+  border: 3px solid #2b6045;
+  border-right: 5px solid #3c7a5d;
+  background: linear-gradient(135deg, #2e6b4c, #4e8c6b, #70ad88); /* Metallic sheen */
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+/* Buttons & Interactive Elements */
+a:hover, button:hover {
+  background-color: #3c8c6c;
+  color: white;
+  transition: 0.3s ease-in-out;
+}
+
+button {
+  background-color: #2e6b4c;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 0px 3px 6px rgba(0, 50, 30, 0.5);
+}
+
+button:hover {
+  background-color: #24543c;
+  box-shadow: 0px 4px 8px rgba(0, 50, 30, 0.7);
+}
+@media screen and (max-width: 768px) {
+  .row {
+      flex-direction: column;
+  }
+  #upper-left, #geo-map-outer {
+      width: 100%;
+  }
+}
+
