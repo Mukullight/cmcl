@@ -12,14 +12,14 @@
 body {
   background-image: url("neon.jpg");
   color: #9fa6b7;
-  overflow-x: auto;
+  overflow-x: hidden;
   margin-top: 7rem; /* Pushes body content below the fixed banner */
 }
 
 .banner {
   height: 10rem; /* Fixed height like GOV.UK header */
   margin-bottom: 0; /* No margin-bottom; spacing handled elsewhere */
-   /* GOV.UK horizontal padding; top/bottom implicit 0 */
+  /* GOV.UK horizontal padding; top/bottom implicit 0 */
   display: flex;
   flex-flow: row nowrap; /* Horizontal layout, no wrapping */
   align-items: center;
@@ -31,8 +31,8 @@ body {
   font-family: Arial, sans-serif; /* Fallback for GDS Transport */
   position: fixed; /* Makes it stick to the viewport */
   top: 0; /* Pins it to the top */
-  width: 100%; 
-  z-index: 100;/* Ensures it spans the full width */
+  width: 100%;
+  z-index: 100; /* Ensures it spans the full width */
 }
 
 /* Styling for h4 (e.g., service name or title) */
@@ -60,194 +60,30 @@ body {
 /* Accessibility: Focus states */
 
 #upper-container, #lower-container {
-  margin: 2rem 5rem;
+  margin: 5rem;
   background-color: aquamarine;
+  padding-top: 2rem;
 }
 
 #upper-left, #geo-map-outer {
-  padding: 1rem 2rem 1rem 2rem;
+  padding: 1rem 2rem;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
 }
 
-.control-row-1 {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-#state-select-outer, #select-metric-outer {
-  width: 45%;
-}
-
-#upper-left > div > label {
-  font-weight: bold;
-  margin: 20px 0px;
-}
-
-*.Select-control, Select--single, .Select-multi-value-wrapper, .Select-value, .Select-value-label {
-  background-color: #171b26 !important;
-  color: #7b7d8d !important;
-}
-
-.Select-control, .Select-menu-outer {
-  border: 1px solid dimgrey !important;
-}
-
-span.Select-clear-zone {
-  display: none !important;
-}
-
-.Select-menu-outer, .Select-menu-outer div, .Select--multi {
-  background-color: #171b26 !important;
-  color: #7b7d8d !important;
-}
-
-.Select-menu-outer div:hover {
-  color: white !important;
-  cursor: pointer;
-}
-
-#region-select-all, #state-select-outer > label, #select-metric-outer > label {
-  margin-bottom: 2px;
-  color: #7b7d8d;
-}
-
-.dash-spreadsheet-container .dash-spreadsheet-inner th, td {
-  text-align: center !important;
-  font-family: "Open Sans", sans-serif !important;
-  border-top-color: #171b26 !important;
-  border-bottom-color: #171b26 !important;
-  border-left-color: #171b26 !important;
-  border-right-color: #171b26 !important;
-  font-size: 11px;
-}
-
-
-#table-upper > p, #table-lower > p {
-  font-weight: bold;
-  margin: 20px 0px;
-}
-
-#lower-container {
-  border-top: 1px solid #1f2536;
-  height: 800px;
-  overflow-y: scroll;
-  overflow-x: scroll;
-}
-
-#procedure-plot {
-  height: 6000px;
-  min-width: 1200px;
-}
-
 #geo-map-loading-outer {
-  height: 60rem;
+  height: auto;
+  width: auto;
 }
 
 #geo-map {
-  height: 55rem;
+  height: 50rem;
+  width: auto;
 }
 
-#procedure-plot {
-  margin: -300px 0px -200px 0px;
-}
-
-#select-metric-outer, #region-select-outer {
-  display: inline-block;
-}
-
-#cost-stats-table, #procedure-stats-table {
-  overflow: scroll;
-  height: 10rem;
-}
-
-.section-title, #map-title {
-  font-size: 16px;
-  font-weight: bold;
-  display: block;
-}
-
-.mapboxgl-canvas,
-.mapboxgl-map {
-  min-width: 100%;
-}
-
-/*
-  ##Device = Most of the Smartphones Mobiles (Portrait)
-  */
-
-@media only screen and (max-width: 750px) {
-  .control-row-1 {
-    flex-direction: column;
-  }
-
-  #state-select-outer, #select-metric-outer {
-    width: 100%;
-  }
-}
-
-@media only screen and (max-width: 750px), (min-width: 768px) and (max-width: 1024px) {
-  body {
-    font-size: 14px;
-  }
-
-  .section-title, #map-title {
-    font-size: 14px;
-  }
-
-  .banner {
-    padding: 0rem 2rem;
-  }
-
-  .banner h6 {
-    font-size: 1.5rem;
-  }
-
-
-
-  #upper-container {
-    margin: 1rem;
-  }
-
-  #upper-left > div > label {
-    font-weight: normal;
-    margin-bottom: 2px;
-  }
-
-  #upper-left, #geo-map-outer {
-    width: 100%;
-    margin-left: 0;
-  }
-
-  #lower-container {
-    position: relative;
-  }
-
-  /* position procedure plot relative to outer div in mobile layout  */
-  #procedure-plot {
-    position: absolute;
-  }
-
-  g.yaxislayer-above > g > text {
-    font-size: 10px !important;
-  }
-
-}
-
-/*
-  ##Device = Tablets, Ipads (portrait)
-  ##Screen = B/w 768px to 1024px
-*/
-@media only screen and (min-width: 768px) and (max-width: 1024px) {
-
-  #upper-left, #geo-map-outer {
-    padding: 1rem 4rem;
-  }
-
-  #state-select-outer, #select-metric-outer {
-    width: 45%;
-  }
-
+#geo-map-outer {
+  border: 2px solid black;
+  border-right: 5px solid black;  
+  padding: 1rem;
 }
